@@ -9,5 +9,5 @@ md_prot-DNA.sh (shell script with MD step by step command line).
 Protein-DNA trajectory movie:
 https://youtu.be/F6c-wVX49TQ
 
-GMX tutorials for protein, protein-ligand and others:
+Gromacs tutorials for protein, protein-ligand and others:
 http://www.mdtutorials.com/gmx/
