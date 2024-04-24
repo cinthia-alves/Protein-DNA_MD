@@ -11,3 +11,5 @@ https://youtu.be/F6c-wVX49TQ
 
 Gromacs tutorials for protein, protein-ligand and others:
 http://www.mdtutorials.com/gmx/
+
+Paper: https://www.mdpi.com/1386980
