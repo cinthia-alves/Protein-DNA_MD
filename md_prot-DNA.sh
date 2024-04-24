@@ -1,18 +1,3 @@
-#!/bin/bash  -v
-#SBATCH --partition=GPUSP4
-#SBATCH --ntasks=2
-#SBATCH --cpus-per-task=8
-#SBATCH -J ProtDNA					#job_name
-#SBATCH --time=80:00:00
-#SBATCH --gres=gpu:tesla:2
-
-cd /scratch/cinthia/md_prot-dna
-
-###GROMACS_2019###
-
-module load Gromacs/2019.3-cuda
-export OMP_NUM_THREADS=8
-
 #Molecular Dynamics of protein-dna in water box
 
 mkdir em npt nvt md
@@ -62,6 +47,7 @@ echo "10" "0" | gmx energy -f em_prot-dna.edr -o potential.xvg
 # In this case, is better to use in nvt file npt option tc-grps: DNA_Protein Water_and_Ions (Always uses only two groups for couple)!!!
 # We need to create an DNA_Protein to these groups before use Grompp, then, type: 
 # (1: DNA........... 3: Protein.........q: exit) with the command below:
+# Indice numbers may differ between GROMACS versions!! Always check them!
 
 echo -e "1 | 12 | \n q" | gmx make_ndx -f em_prot-dna.gro -o ../DNA_Protein.ndx
 
