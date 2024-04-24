@@ -40,12 +40,12 @@ echo "10" "0" | gmx energy -f em_prot-dna.edr -o potential.xvg
 # NVT Temperature control:
 # Proper control of temperature coupling is a sensitive issue.
 # Coupling every "moleculetype" (At top.top file) to its own thermostatting group is a bad idea. 
-# For instance, if you do the following in mdp file":
-# "nvt.mdp> tc-grps = Protein DNA SOL K", Your system will probably blow up, since the temperature coupling
-# algorithms are not stable enough to control the fluctuations in kinetic energy that groups with a few atoms 
-# (i.e., DNA and NA) will produce. Do not couple every single species in your system separately!!! NEVER!!
+# For instance, if you do the following in mdp file":"nvt.mdp> tc-grps = Protein DNA SOL K", your
+# system will probably blow up, since the temperature coupling algorithms are not stable enough 
+#to control the fluctuations in kinetic energy that groups with a few atoms (i.e., DNA and NA) will produce.
+# Do not couple every single species in your system separately!!! NEVER!!
 # In this case, is better to use in nvt file npt option tc-grps: DNA_Protein Water_and_Ions (Always uses only two groups for couple)!!!
-# We need to create an DNA_Protein to these groups before use Grompp, then, type: 
+# We need to create an DNA_Protein index using gmx make_ndx to these groups before Grompp command .
 # (1: DNA........... 3: Protein.........q: exit) with the command below:
 # Indice numbers may differ between GROMACS versions!! Always check them!
 
